@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/userDatenErfassenNotfallkontakte"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDatenErfassenActivity"
+    tools:showIn="@layout/activity_user_daten_erfassen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/editText05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:text="@string/notfallkontakte"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText05" />
+
+        <EditText
+            android:id="@+id/editTextKontaktName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Anschrift"
+            app:layout_constraintStart_toStartOf="@+id/editTextKontaktName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextKontaktName" />
+
+        <EditText
+            android:id="@+id/editTextStrasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Straße"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <EditText
+            android:id="@+id/editTextKontaktHausnummer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:width="50dp"
+            android:ems="10"
+            android:hint="Nr"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toEndOf="@+id/editTextStrasse"
+            app:layout_constraintTop_toTopOf="@+id/editTextStrasse" />
+
+        <EditText
+            android:id="@+id/editTextKontaktPlz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:width="100dp"
+            android:ems="10"
+            android:hint="PLZ"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/editTextStrasse"
+            app:layout_constraintTop_toBottomOf="@+id/editTextStrasse" />
+
+        <EditText
+            android:id="@+id/editTextKontaktOrt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:hint="Ort"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toEndOf="@+id/editTextKontaktPlz"
+            app:layout_constraintTop_toTopOf="@+id/editTextKontaktPlz" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="E-Mailadresse"
+            app:layout_constraintStart_toStartOf="@+id/editTextKontaktPlz"
+            app:layout_constraintTop_toBottomOf="@+id/editTextKontaktPlz" />
+
+        <EditText
+            android:id="@+id/editTextKontaktEmailadresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="E-Mailadresse"
+            android:inputType="textEmailAddress"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Handynummer"
+            app:layout_constraintStart_toStartOf="@+id/editTextKontaktEmailadresse"
+            app:layout_constraintTop_toBottomOf="@+id/editTextKontaktEmailadresse" />
+
+        <EditText
+            android:id="@+id/editTextKontaktHandynummer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="0160 1234567"
+            android:inputType="phone"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Kontaktart"
+            app:layout_constraintStart_toStartOf="@+id/editTextKontaktHandynummer"
+            app:layout_constraintTop_toBottomOf="@+id/editTextKontaktHandynummer" />
+
+        <Spinner
+            android:id="@+id/spinnerKontaktKontaktart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintStart_toStartOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <Button
+            android:id="@+id/buttonNotfallkontakteWeiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="userDatenErfassenSpeichern"
+            android:text="speichern"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNotfallkontakteHinzufuegen" />
+
+        <Button
+            android:id="@+id/buttonNotfallkontakteZurueck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:onClick="navigationForwardAndHandleData"
+            android:text="zurück"
+            app:layout_constraintEnd_toStartOf="@+id/buttonNotfallkontakteWeiter"
+            app:layout_constraintTop_toTopOf="@+id/buttonNotfallkontakteWeiter" />
+
+        <Button
+            android:id="@+id/buttonNotfallkontakteHinzufuegen"
+            android:layout_width="112dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:onClick="notfallKontaktHinzufuegen"
+            android:text="hinzufügen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerKontaktKontaktart" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

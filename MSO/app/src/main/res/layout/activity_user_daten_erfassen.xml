@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDatenErfassenActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/content_user_daten_erfassen_stammdaten"
+            android:visibility="invisible" />
+
+        <include
+            android:id="@+id/include3"
+            layout="@layout/content_user_daten_erfassen_kontaktdaten"
+            android:visibility="invisible" />
+
+        <include
+            android:id="@+id/include2"
+            layout="@layout/content_user_daten_erfassen_weitere_stammdaten"
+            android:visibility="invisible" />
+
+        <include
+            android:id="@+id/include5"
+            layout="@layout/content_user_daten_erfassen_relevante_daten"
+            android:visibility="invisible" />
+
+        <include
+            android:id="@+id/include4"
+            layout="@layout/content_user_daten_erfassen_notfallkontakte"
+            android:visibility="invisible" />
+
+        <include
+            android:id="@+id/include6"
+            layout="@layout/content_user_daten_erfassen_medizinische_informationen"
+            android:visibility="invisible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_weiter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="bla" />
+</androidx.core.widget.NestedScrollView>

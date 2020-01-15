@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MSO-Test</string>
+    <string name="action_settings">Settings</string>
+    <string name="shared_preferences_user_data">sharedPreferncesUserData</string>
+    <string name="shared_preferences_user_data_json">sharedPreferncesUserDataJSON</string>
+    <string name="notfallkontakte">Notfallkontakte</string>
+</resources>
