@@ -13,8 +13,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.Serializable;
-
 import de.ema.mso_test.dto.NutzerDTO;
 import de.ema.mso_test.dto.factory.NutzerDTOFactory;
 import de.ema.mso_test.helper.StoredDataHelper;
@@ -46,12 +44,11 @@ public class MainActivity extends AppCompatActivity {
         if (nutzerDTO == null) {
             // wenn nein, direkt weiterrooten auf Eingabemaske
             nutzerDTO = NutzerDTOFactory.createInstance();
-            Intent intent = new Intent(this, UserDatenErfassenActivity.class);
-            intent.putExtra("ShowIntToast", true);
-            intent.putExtra("nutzerDTO", nutzerDTO);
-            startActivity(intent);
-
         }
+        Intent intent = new Intent(this, UserDatenErfassenActivity.class);
+        intent.putExtra("ShowIntToast", true);
+        intent.putExtra("nutzerDTO", nutzerDTO);
+        startActivity(intent);
 
 
     }
