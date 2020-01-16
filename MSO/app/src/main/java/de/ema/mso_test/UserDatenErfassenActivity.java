@@ -52,6 +52,8 @@ public class UserDatenErfassenActivity extends AppCompatActivity {
 
         // erste Maske der Datenerfassung sichtbar machen
         findViewById(R.id.userDatenErfassenStammdaten).setVisibility(View.VISIBLE);
+        prepareStammdatenView();
+
 
     }
 
@@ -218,9 +220,9 @@ public class UserDatenErfassenActivity extends AppCompatActivity {
         nutzerDTO.getPersoenlicheDaten().setVorname(vorname.getText().toString());
         nutzerDTO.getPersoenlicheDaten().setName(nachname.getText().toString());
         nutzerDTO.getPersoenlicheDaten().getAnschrift().setHausnummer(hausnummer.getText().toString());
-        nutzerDTO.getPersoenlicheDaten().getAnschrift().setHausnummer(strasse.getText().toString());
-        nutzerDTO.getPersoenlicheDaten().getAnschrift().setHausnummer(ort.getText().toString());
-        nutzerDTO.getPersoenlicheDaten().getAnschrift().setHausnummer(plz.getText().toString());
+        nutzerDTO.getPersoenlicheDaten().getAnschrift().setStrasse(strasse.getText().toString());
+        nutzerDTO.getPersoenlicheDaten().getAnschrift().setOrt(ort.getText().toString());
+        nutzerDTO.getPersoenlicheDaten().getAnschrift().setPlz(plz.getText().toString());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // TODO vom eingegebenen Geburtsdatum parsen!
             String s = geburtsdatum.getText().toString();
@@ -232,16 +234,55 @@ public class UserDatenErfassenActivity extends AppCompatActivity {
     private void prepareStammdatenView() {
         // Stammdaten sichtbar
         setContentView(R.layout.content_user_daten_erfassen_stammdaten);
+
+        EditText vorname = findViewById(R.id.editTextEmail);
+        EditText nachname = findViewById(R.id.editTextName);
+        EditText geburtsdatum = findViewById(R.id.editTextGeburstag);
+        EditText strasse = findViewById(R.id.editTextStrasse);
+        EditText hausnummer = findViewById(R.id.editTextHausnummer);
+        EditText plz = findViewById(R.id.editTextPlz);
+        EditText ort = findViewById(R.id.editTextOrt);
+
+        vorname.setText(nutzerDTO.getPersoenlicheDaten().getVorname());
+        nachname.setText(nutzerDTO.getPersoenlicheDaten().getName());
+        hausnummer.setText(nutzerDTO.getPersoenlicheDaten().getAnschrift().getHausnummer());
+        plz.setText(nutzerDTO.getPersoenlicheDaten().getAnschrift().getPlz());
+        strasse.setText(nutzerDTO.getPersoenlicheDaten().getAnschrift().getStrasse());
+        ort.setText(nutzerDTO.getPersoenlicheDaten().getAnschrift().getOrt());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // TODO vom eingegebenen Geburtsdatum parsen!
+            String s = geburtsdatum.getText().toString();
+            nutzerDTO.getPersoenlicheDaten().setGeburtsdatum(LocalDate.now());
+        }
     }
 
     private void prepareWeitereStammdatenView() {
         // weitereStammdaten sichtbar
         setContentView(R.layout.content_user_daten_erfassen_weitere_stammdaten);
+
+        // Werte der Felder setzen
+        EditText beruf = findViewById(R.id.editTextBeruf);
+        EditText groesse = findViewById(R.id.editTextGroesse);
+        EditText gewicht = findViewById(R.id.editTextGewicht);
+
+        beruf.setText(nutzerDTO.getPersoenlicheDaten().getBeruf());
+        gewicht.setText(nutzerDTO.getPersoenlicheDaten().getGewicht());
+        groesse.setText(nutzerDTO.getPersoenlicheDaten().getGroesse());
+
     }
 
     private void prepareKontaktdatenView() {
         // Kontaktdaten sichtbar
         setContentView(R.layout.content_user_daten_erfassen_kontaktdaten);
+
+        EditText email = findViewById(R.id.editTextEmail);
+        EditText handynummer = findViewById(R.id.editTextHandynummer);
+        EditText telefonnummer = findViewById(R.id.editTextTelefonnummer);
+
+        email.setText(nutzerDTO.getPersoenlicheDaten().getKontaktdaten().getEmail());
+        handynummer.setText(nutzerDTO.getPersoenlicheDaten().getKontaktdaten().getHandynummer());
+        telefonnummer.setText(nutzerDTO.getPersoenlicheDaten().getKontaktdaten().getTelefonnummer());
+
     }
 
     private void prepareNotfallkontaktView() {
