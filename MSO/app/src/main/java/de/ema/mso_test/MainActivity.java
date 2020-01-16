@@ -40,17 +40,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Daten aus dem Speicher holen
         nutzerDTO = StoredDataHelper.readStorageData(getSharedPreferences(getString(R.string.shared_preferences_user_data), Context.MODE_PRIVATE), getString(R.string.shared_preferences_user_data_json));
+        Intent intent = new Intent(this, UserDatenErfassenActivity.class);
 
         if (nutzerDTO == null) {
             // wenn nein, direkt weiterrooten auf Eingabemaske
             nutzerDTO = NutzerDTOFactory.createInstance();
+            intent.putExtra("ShowIntToast", true);
+            intent.putExtra("nutzerDTO", nutzerDTO);
+            startActivity(intent);
         }
-        Intent intent = new Intent(this, UserDatenErfassenActivity.class);
-        intent.putExtra("ShowIntToast", true);
-        intent.putExtra("nutzerDTO", nutzerDTO);
-        startActivity(intent);
-
-
     }
 
 
@@ -98,9 +96,7 @@ public class MainActivity extends AppCompatActivity {
     public void datenErfassen(View view) {
 
         Intent intent = new Intent(this, UserDatenErfassenActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.editText);
-//        String message = editText.getText().toString();
-//        intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra("nutzerDTO", nutzerDTO);
         startActivity(intent);
 
 
