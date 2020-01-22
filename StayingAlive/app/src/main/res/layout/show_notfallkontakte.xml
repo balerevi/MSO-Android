@@ -3,22 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/showNotfallKontaktListe"
-    app:cardCornerRadius="4dp" >
+    android:background="@color/colorOrange"
+    android:id="@+id/showNotfallKontaktListe">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_height="match_parent">
 
         <TextView
+            android:textColor="@color/colorOrange"
             android:id="@+id/NotfallKontaktAnzeigename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="Max Müller, bla, blub"
+            android:text="keine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

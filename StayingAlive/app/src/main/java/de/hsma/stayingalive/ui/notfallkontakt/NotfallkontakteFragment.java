@@ -30,7 +30,7 @@ public class NotfallkontakteFragment extends Fragment {
         NutzerDTOManager instance = NutzerDTOManager.getInstance();
         nutzerDto = instance.getNutzerDto();
 
-                recyclerViewKontaktliste = root.findViewById(R.id.kontaktListe);
+        recyclerViewKontaktliste = root.findViewById(R.id.kontaktListe);
         recyclerViewKontaktliste.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAdapter = new NotfallkontaktRecycleAdapter(nutzerDto);

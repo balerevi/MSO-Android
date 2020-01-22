@@ -13,7 +13,7 @@ import de.hsma.stayingalive.R;
 import de.hsma.stayingalive.dto.NotfallkontaktDTO;
 import de.hsma.stayingalive.dto.NutzerDTO;
 
-class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRecycleAdapter.MyHolder> {
+class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRecycleAdapter.NotfallkontaktHolder> {
 
     private NutzerDTO nutzerDTO;
     private int btnCt = 0;
@@ -24,16 +24,16 @@ class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRe
 
     @NonNull
     @Override
-    public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NotfallkontaktHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.show_notfallkontakte, parent, false);
-        MyHolder vh = new MyHolder(v);
+        NotfallkontaktHolder vh = new NotfallkontaktHolder(v);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotfallkontaktHolder holder, int position) {
         NotfallkontaktDTO currentKontakt = nutzerDTO.getPrivateDaten().getNotfallkontakte().get(position);
         if (currentKontakt != null) {
 //            String art = currentKontakt.getKontaktart().getValue();
@@ -41,14 +41,14 @@ class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRe
             String nr = currentKontakt.getKontaktdaten().getHandynummer();
 
             StringBuilder sb = new StringBuilder();
-            if (name!=null){
+            if (name != null) {
                 sb.append(name);
             }
 //            if (art!=null){
 //                sb.append(", ");
 //                sb.append(art);
 //            }
-            if (nr!=null){
+            if (nr != null) {
                 sb.append(", ");
                 sb.append(nr);
             }
@@ -67,20 +67,17 @@ class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRe
     }
 
 
-    public class MyHolder extends RecyclerView.ViewHolder {
+    public class NotfallkontaktHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public Button removeBtn;
 
-        public MyHolder(View v) {
+        public NotfallkontaktHolder(View v) {
             super(v);
             name = v.findViewById(R.id.NotfallKontaktAnzeigename);
             removeBtn = v.findViewById(R.id.buttonRemove);
             removeBtn.setId(getBtnCt());
-            removeBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            removeBtn.setOnClickListener(v1 -> {
 
-                }
             });
         }
     }

@@ -45,7 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:scrollbars="vertical"
-            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -74,7 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:scrollbars="vertical"
-            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -98,12 +96,11 @@
             app:layout_constraintTop_toBottomOf="@+id/button_allergien_hinzufuegen" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/erkankungenliste"
+            android:id="@+id/erkrankungenliste"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:scrollbars="vertical"
-            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -115,7 +112,7 @@
             android:text="+"
             android:onClick="addErkrankung"
             app:layout_constraintStart_toStartOf="@+id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/erkankungenliste" />
+            app:layout_constraintTop_toBottomOf="@+id/erkrankungenliste" />
 
         <TextView
             android:id="@+id/textView13"
