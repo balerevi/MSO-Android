@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/persoenliche_daten"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--Gelb Orange-->
+
+
+        <EditText
+            android:id="@+id/editTextVorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Vorname"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/NotfallKontaktAnzeigename"
+            app:layout_constraintTop_toBottomOf="@+id/NotfallKontaktAnzeigename" />
+
+        <EditText
+            android:id="@+id/editTextNachname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Nachname"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/editTextVorname"
+            app:layout_constraintTop_toBottomOf="@+id/editTextVorname" />
+
+        <TextView
+            android:id="@+id/NotfallKontaktAnzeigename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Hallo! Wie heißt du?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Wann hast du Geburtstag?"
+            app:layout_constraintStart_toStartOf="@+id/editTextNachname"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNachname" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="171dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:text="Wo wohnst du?"
+            app:layout_constraintStart_toStartOf="@+id/editTextGeburstag"
+            app:layout_constraintTop_toBottomOf="@+id/editTextGeburstag" />
+
+
+        <EditText
+            android:id="@+id/editTextGeburstag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="01.01.1990"
+            android:inputType="date"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <EditText
+            android:id="@+id/editTextStrasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Straße"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <EditText
+            android:id="@+id/editTextOrt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Ort"
+            android:inputType="text"
+            app:layout_constraintStart_toEndOf="@+id/editTextPlz"
+            app:layout_constraintTop_toBottomOf="@+id/editTextHausnummer" />
+
+        <EditText
+            android:id="@+id/editTextHausnummer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:width="50dp"
+            android:ems="10"
+            android:hint="Nr"
+            android:inputType="text"
+            app:layout_constraintStart_toEndOf="@+id/editTextStrasse"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <EditText
+            android:id="@+id/editTextPlz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:width="100dp"
+            android:ems="10"
+            android:hint="PLZ"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/editTextStrasse"
+            app:layout_constraintTop_toBottomOf="@+id/editTextStrasse" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Welchen Beruf übst du aus?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextOrt" />
+
+        <EditText
+            android:id="@+id/editTextBeruf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Beruf"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textViewGroesse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Wie groß bist du?"
+            app:layout_constraintStart_toStartOf="@+id/editTextBeruf"
+            app:layout_constraintTop_toBottomOf="@+id/editTextBeruf" />
+
+        <EditText
+            android:id="@+id/editTextGroesse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="cm"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/textViewGroesse"
+            app:layout_constraintTop_toBottomOf="@+id/textViewGroesse" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Dein Gewicht?"
+            app:layout_constraintStart_toStartOf="@+id/editTextGroesse"
+            app:layout_constraintTop_toBottomOf="@+id/editTextGroesse" />
+
+        <EditText
+            android:id="@+id/editTextGewicht"
+            android:layout_width="209dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="kg"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

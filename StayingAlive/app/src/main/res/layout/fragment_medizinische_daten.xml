@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/persoenliche_daten"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--blau-->
+
+        <TextView
+            android:id="@+id/blutgruppe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Blutgruppe"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinnerBlutgruppe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/blutgruppe"
+            app:layout_constraintTop_toBottomOf="@+id/blutgruppe" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Medikamente"
+            app:layout_constraintStart_toStartOf="@+id/spinnerBlutgruppe"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerBlutgruppe" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/medikamentenliste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/button_medikamente_hinzufuegen"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:onClick="addMedikament"
+            android:text="+"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/medikamentenliste" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Allergien"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/button_medikamente_hinzufuegen" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/allergienliste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <Button
+            android:id="@+id/button_allergien_hinzufuegen"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:onClick="addAllergie"
+            android:text="+"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/allergienliste" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Erkrankungen und Befunde"
+            app:layout_constraintStart_toStartOf="@+id/button_allergien_hinzufuegen"
+            app:layout_constraintTop_toBottomOf="@+id/button_allergien_hinzufuegen" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/erkankungenliste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <Button
+            android:id="@+id/button_erkankungen_hinzufuegen"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:text="+"
+            android:onClick="addErkrankung"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/erkankungenliste" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Organspender"
+            app:layout_constraintStart_toStartOf="@+id/button_erkankungen_hinzufuegen"
+            app:layout_constraintTop_toBottomOf="@+id/button_erkankungen_hinzufuegen" />
+
+        <Switch
+            android:id="@+id/switchOrganspender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textOff="nein"
+            android:textOn="ja"
+            app:layout_constraintStart_toStartOf="@+id/button_erkankungen_hinzufuegen"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

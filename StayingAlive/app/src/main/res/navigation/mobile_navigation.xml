@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_persoenliche_daten">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="de.hsma.stayingalive.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_persoenliche_daten"
+        android:name="de.hsma.stayingalive.ui.persoenlichedaten.PersoenlicheDatenFragment"
+        android:label="@string/title_persoenliche_daten"
+        tools:layout="@layout/fragment_persoenliche_daten">
+
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="de.hsma.stayingalive.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_medizinische_daten"
+        android:name="de.hsma.stayingalive.ui.medizinischedaten.MedzinischeDatenFragment"
+        android:label="@string/title_medizinische_daten"
+        tools:layout="@layout/fragment_medizinische_daten">
+
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="de.hsma.stayingalive.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_notfallkontakte"
+        android:name="de.hsma.stayingalive.ui.notfallkontakt.NotfallkontakteFragment"
+        android:label="@string/title_notfallkontakte"
+        tools:layout="@layout/fragment_notfallkontakte">
+
+    </fragment>
+
 </navigation>

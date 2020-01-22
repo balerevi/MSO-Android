@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Staying Alive</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_persoenliche_daten">Persönliche Daten</string>
+    <string name="title_medizinische_daten">Medizinische Daten</string>
+    <string name="title_notfallkontakte">Notfallkontakte</string>
+
+    <string name="shared_preferences_user_data">sharedPreferncesUserData</string>
+    <string name="shared_preferences_user_data_json">sharedPreferncesUserDataJSON</string>
 </resources>
