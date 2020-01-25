@@ -71,7 +71,7 @@ public class MedzinischeDatenFragment extends Fragment {
     private void fillSpinnerBlutgruppe(View root) {
         // fill Spinner "Kontaktart"
         BlutgruppenEnum[] values = BlutgruppenEnum.values();
-        ArrayAdapter<BlutgruppenEnum> adapter = new ArrayAdapter<BlutgruppenEnum>(getContext(), R.layout.support_simple_spinner_dropdown_item, BlutgruppenEnum.values());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, BlutgruppenEnum.valuesAsString());
         Spinner blutgruppeSpinner = root.findViewById(R.id.spinnerBlutgruppe);
         blutgruppeSpinner.setAdapter(adapter);
     }
