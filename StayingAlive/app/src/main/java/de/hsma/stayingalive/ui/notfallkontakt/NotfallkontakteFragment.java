@@ -50,7 +50,7 @@ public class NotfallkontakteFragment extends Fragment {
     private void fillSpinnerKontaktArt(View root) {
         // fill Spinner "Kontaktart"
         KontaktartEnum[] values = KontaktartEnum.values();
-        ArrayAdapter<KontaktartEnum> adapter = new ArrayAdapter<KontaktartEnum>(getContext(), R.layout.support_simple_spinner_dropdown_item, KontaktartEnum.values());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, KontaktartEnum.valuesAsString());
         Spinner kontaktartSpinner = root.findViewById(R.id.spinnerKontaktArt);
         kontaktartSpinner.setAdapter(adapter);
     }
