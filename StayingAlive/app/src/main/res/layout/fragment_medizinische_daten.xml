@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
         <!--blau-->
 
         <TextView
@@ -16,7 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:backgroundTint="@color/colorBlack"
             android:text="Blutgruppe"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,8 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorBlue"
             android:ems="10"
             android:inputType="textPersonName"
+            android:theme="@style/spinnerTheme"
             app:layout_constraintStart_toStartOf="@+id/blutgruppe"
             app:layout_constraintTop_toBottomOf="@+id/blutgruppe" />
 
@@ -35,7 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorBlack"
             android:text="Medikamente"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="@+id/spinnerBlutgruppe"
             app:layout_constraintTop_toBottomOf="@+id/spinnerBlutgruppe" />
 
@@ -44,7 +53,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@color/colorBlue"
+            android:backgroundTint="@color/colorBlack"
             android:scrollbars="vertical"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -53,6 +66,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorBlue"
             android:onClick="addMedikament"
             android:text="+"
             app:layout_constraintStart_toStartOf="@+id/textView"
@@ -63,7 +77,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorBlack"
             android:text="Allergien"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/button_medikamente_hinzufuegen" />
 
@@ -72,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@color/colorBlue"
             android:scrollbars="vertical"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -81,6 +99,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorBlue"
             android:onClick="addAllergie"
             android:text="+"
             app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -91,7 +110,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorBlack"
             android:text="Erkrankungen und Befunde"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="@+id/button_allergien_hinzufuegen"
             app:layout_constraintTop_toBottomOf="@+id/button_allergien_hinzufuegen" />
 
@@ -100,6 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@color/colorBlue"
             android:scrollbars="vertical"
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -109,8 +132,9 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:text="+"
+            android:backgroundTint="@color/colorBlue"
             android:onClick="addErkrankung"
+            android:text="+"
             app:layout_constraintStart_toStartOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/erkrankungenliste" />
 
@@ -119,7 +143,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorBlack"
             android:text="Organspender"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="@+id/button_erkankungen_hinzufuegen"
             app:layout_constraintTop_toBottomOf="@+id/button_erkankungen_hinzufuegen" />
 
@@ -130,6 +157,7 @@
             android:layout_marginTop="8dp"
             android:textOff="nein"
             android:textOn="ja"
+            android:theme="@style/SwitchThemeMedizin"
             app:layout_constraintStart_toStartOf="@+id/button_erkankungen_hinzufuegen"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 

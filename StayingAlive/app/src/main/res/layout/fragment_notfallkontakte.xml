@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
         <!--Rot-->
         <TextView
             android:id="@+id/textView2"
@@ -17,6 +18,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Name"
+            android:backgroundTint="@color/colorBlack"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
+            android:textColorLink="@color/colorRed"
+            android:textCursorDrawable="@drawable/edit_text_notfall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +33,11 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Name"
+            android:backgroundTint="@color/colorRed"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
+            android:textColorLink="@color/colorRed"
+            android:textCursorDrawable="@drawable/edit_text_notfall"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -38,6 +49,11 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="Kontaktart"
+            android:backgroundTint="@color/colorBlack"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
+            android:textColorLink="@color/colorRed"
+            android:textCursorDrawable="@drawable/edit_text_notfall"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editTextKontaktName"
             app:layout_constraintTop_toBottomOf="@+id/editTextKontaktName"
@@ -48,6 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorRed"
+            android:theme="@style/spinnerTheme"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -57,6 +75,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Telefonnummer"
+            android:backgroundTint="@color/colorBlack"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
+            android:textColorLink="@color/colorRed"
+            android:textCursorDrawable="@drawable/edit_text_notfall"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/spinnerKontaktArt"
             app:layout_constraintTop_toBottomOf="@+id/spinnerKontaktArt"
@@ -69,6 +92,12 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="phone"
+            android:hint="0163123476"
+            android:backgroundTint="@color/colorRed"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
+            android:textColorLink="@color/colorRed"
+            android:textCursorDrawable="@drawable/edit_text_notfall"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -76,8 +105,10 @@
             android:id="@+id/buttonKontaktHinzufuegen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"
+            android:backgroundTint="@color/colorRed"
             android:onClick="addKontakt"
+            android:text="+"
+            android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/editTextKontaktTelefonnummer" />
 
