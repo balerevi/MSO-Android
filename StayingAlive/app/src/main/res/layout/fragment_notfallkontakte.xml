@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/persoenliche_daten"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,8 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Name"
             android:backgroundTint="@color/colorBlack"
+            android:text="Name"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorBlack"
             android:textColorLink="@color/colorRed"
@@ -31,14 +32,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorRed"
             android:ems="10"
             android:hint="Name"
-            android:backgroundTint="@color/colorRed"
+            android:inputType="textPersonName"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorBlack"
             android:textColorLink="@color/colorRed"
             android:textCursorDrawable="@drawable/edit_text_notfall"
-            android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -48,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Kontaktart"
             android:backgroundTint="@color/colorBlack"
+            android:text="Kontaktart"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorBlack"
             android:textColorLink="@color/colorRed"
@@ -74,8 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Telefonnummer"
             android:backgroundTint="@color/colorBlack"
+            android:text="Telefonnummer"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorBlack"
             android:textColorLink="@color/colorRed"
@@ -90,10 +91,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="phone"
-            android:hint="0163123476"
             android:backgroundTint="@color/colorRed"
+            android:ems="10"
+            android:hint="0163123476"
+            android:inputType="phone"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorBlack"
             android:textColorLink="@color/colorRed"
@@ -118,8 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/buttonKontaktHinzufuegen"/>
-
+            app:layout_constraintTop_toBottomOf="@+id/buttonKontaktHinzufuegen" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
