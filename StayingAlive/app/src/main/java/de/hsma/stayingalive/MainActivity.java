@@ -2,7 +2,6 @@ package de.hsma.stayingalive;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,15 +13,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import de.hsma.stayingalive.dto.AllergieDTO;
 import de.hsma.stayingalive.dto.ErkankungUndBefundeDTO;
@@ -35,8 +27,8 @@ import de.hsma.stayingalive.dto.factory.ErkrankungUndBefundeDTOFactory;
 import de.hsma.stayingalive.dto.factory.MedikamentDTOFactory;
 import de.hsma.stayingalive.dto.factory.NotfallkontaktDTOFactory;
 import de.hsma.stayingalive.dto.factory.NutzerDTOFactory;
-import de.hsma.stayingalive.manager.NetworkDataPostOrPutManager;
 import de.hsma.stayingalive.manager.NetworkDataGetManager;
+import de.hsma.stayingalive.manager.NetworkDataPostOrPutManager;
 import de.hsma.stayingalive.manager.NutzerDTOManager;
 import de.hsma.stayingalive.manager.StoredDataManager;
 import de.hsma.stayingalive.ui.medizinischedaten.MedzinischeDatenFragment;
@@ -56,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         ((Button) findViewById(R.id.buttonMedizin))
                 .setActivated(true);
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
 
         // Daten aus dem Speicher holen
         nutzerDTO = StoredDataManager.readStorageData(getSharedPreferences(getString(R.string.shared_preferences_user_data), Context.MODE_PRIVATE), getString(R.string.shared_preferences_user_data_json));
@@ -220,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setActivated(true);
         d = btn.getCompoundDrawables();
 
-        switch(id) {
+        switch (id) {
             case R.id.buttonPersoenlich:
                 transaction.replace(R.id.nav_host_fragment, new PersoenlicheDatenFragment());
                 d[0].setColorFilter(getColor(R.color.colorOrange), PorterDuff.Mode.SRC_ATOP);
@@ -231,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
 //                d[0].setTint(Color.GREEN);
                 break;
             case R.id.buttonNotfallKontakt:
-                transaction.replace(R.id.nav_host_fragment,  new NotfallkontakteFragment());
+                transaction.replace(R.id.nav_host_fragment, new NotfallkontakteFragment());
                 d[0].setColorFilter(getColor(R.color.colorRed), PorterDuff.Mode.SRC_ATOP);
 //                d[0].setTint(Color.GREEN);
                 break;
