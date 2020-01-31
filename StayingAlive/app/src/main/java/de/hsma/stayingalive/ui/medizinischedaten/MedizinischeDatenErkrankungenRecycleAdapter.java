@@ -42,6 +42,7 @@ class MedizinischeDatenErkrankungenRecycleAdapter extends RecyclerView.Adapter<M
 
                 if (name != null) {
                     holder.name.setText(name);
+                    holder.removeBtn.setId(position);
                 }
             }
         }
@@ -62,9 +63,9 @@ class MedizinischeDatenErkrankungenRecycleAdapter extends RecyclerView.Adapter<M
             super(v);
             name = v.findViewById(R.id.MedizinAnzeigename);
             removeBtn = v.findViewById(R.id.buttonRemove);
-            //removeBtn.setId(1234);
             removeBtn.setOnClickListener(v1 -> {
-
+                nutzerDTO.getMedizinischeInformationen().getErkankungUndBefunde().remove(v1.getId());
+                notifyDataSetChanged();
             });
         }
     }

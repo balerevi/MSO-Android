@@ -37,7 +37,6 @@ class MedizinischeDatenMedikamenteRecycleAdapter extends RecyclerView.Adapter<Me
     public void onBindViewHolder(@NonNull MedizinischeDatenMedikamenteHolder holder, int position) {
         MedikamentDTO currentMedikamentDto = nutzerDTO.getMedizinischeInformationen().getMedikamente().get(position);
         if (currentMedikamentDto != null) {
-//            String art = currentKontakt.getKontaktart().getValue();
             String name = currentMedikamentDto.getName();
             String dosierung = currentMedikamentDto.getDosierung();
 
@@ -45,15 +44,13 @@ class MedizinischeDatenMedikamenteRecycleAdapter extends RecyclerView.Adapter<Me
             if (name != null) {
                 sb.append(name);
             }
-//            if (art!=null){
-//                sb.append(", ");
-//                sb.append(art);
-//            }
             if (dosierung != null) {
                 sb.append(", ");
                 sb.append(dosierung);
             }
             holder.name.setText(sb.toString());
+            holder.removeBtn.setId(position);
+
         }
     }
 
@@ -72,9 +69,9 @@ class MedizinischeDatenMedikamenteRecycleAdapter extends RecyclerView.Adapter<Me
             super(v);
             name = v.findViewById(R.id.MedizinAnzeigename);
             removeBtn = v.findViewById(R.id.buttonRemove);
-            //removeBtn.setId(1234);
             removeBtn.setOnClickListener(v1 -> {
-
+                nutzerDTO.getMedizinischeInformationen().getMedikamente().remove(v1.getId());
+                notifyDataSetChanged();
             });
         }
     }

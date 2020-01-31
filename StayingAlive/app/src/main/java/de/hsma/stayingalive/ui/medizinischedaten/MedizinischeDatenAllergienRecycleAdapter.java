@@ -42,6 +42,7 @@ class MedizinischeDatenAllergienRecycleAdapter extends RecyclerView.Adapter<Medi
 
                 if (name != null) {
                     holder.name.setText(name);
+                    holder.removeBtn.setId(position);
                 }
             }
         }
@@ -62,9 +63,9 @@ class MedizinischeDatenAllergienRecycleAdapter extends RecyclerView.Adapter<Medi
             super(v);
             name = v.findViewById(R.id.MedizinAnzeigename);
             removeBtn = v.findViewById(R.id.buttonRemove);
-            //removeBtn.setId(1234);
             removeBtn.setOnClickListener(v1 -> {
-
+                nutzerDTO.getMedizinischeInformationen().getAllergien().remove(v1.getId());
+                notifyDataSetChanged();
             });
         }
     }
