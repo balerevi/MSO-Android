@@ -113,6 +113,13 @@ public class MedzinischeDatenFragment extends Fragment {
         adapterErkrankungen.notifyDataSetChanged();
         adapterAllergien.notifyDataSetChanged();
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        writeNutzerToSharedPreferences();
+    }
+
     private void writeNutzerToSharedPreferences() {
         StoredDataManager.writeStorageData(getActivity().getSharedPreferences(getString(R.string.shared_preferences_user_data), Context.MODE_PRIVATE), getString(R.string.shared_preferences_user_data_json), nutzerDto);
     }
