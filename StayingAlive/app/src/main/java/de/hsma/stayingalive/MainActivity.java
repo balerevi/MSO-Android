@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.util.concurrent.ExecutionException;
+
 import de.hsma.stayingalive.dto.AllergieDTO;
 import de.hsma.stayingalive.dto.ErkankungUndBefundeDTO;
 import de.hsma.stayingalive.dto.KontaktartEnum;
@@ -87,9 +89,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            Integer nutzerDtoId = new NetworkDataPostOrPutManager().execute(nutzerDTO).get();
+            if (nutzerDtoId != null) {
+                if (nutzerDTO.getId() == null) {
+                    nutzerDTO.setId(nutzerDtoId);
+                }
+                writeNutzerToSharedPreferences();
+            }
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
-        new NetworkDataPostOrPutManager().execute(nutzerDTO);
     }
 
     private void writeNutzerToSharedPreferences() {
