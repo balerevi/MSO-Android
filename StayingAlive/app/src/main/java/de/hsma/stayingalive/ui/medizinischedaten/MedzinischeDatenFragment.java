@@ -1,6 +1,7 @@
 package de.hsma.stayingalive.ui.medizinischedaten;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -71,7 +73,7 @@ public class MedzinischeDatenFragment extends Fragment {
     private void fillSpinnerBlutgruppe(View root) {
         // fill Spinner "Blutgruppe"
         BlutgruppenEnum[] values = BlutgruppenEnum.values();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, BlutgruppenEnum.valuesAsString());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, BlutgruppenEnum.valuesAsString());
         Spinner blutgruppeSpinner = root.findViewById(R.id.spinnerBlutgruppe);
         blutgruppeSpinner.setAdapter(adapter);
     }
@@ -87,6 +89,7 @@ public class MedzinischeDatenFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 nutzerDto.getMedizinischeInformationen().setBlutgruppe(BlutgruppenEnum.setValueByPosition(position));
+                ((TextView)parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorBlack));
                 writeNutzerToSharedPreferences();
             }
 
