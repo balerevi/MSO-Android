@@ -28,7 +28,7 @@ class MedizinischeDatenErkrankungenRecycleAdapter extends RecyclerView.Adapter<M
     public MedizinischeDatenErkrankungenHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.show_notfallkontakte, parent, false);
+                .inflate(R.layout.show_medizin, parent, false);
         MedizinischeDatenErkrankungenHolder vh = new MedizinischeDatenErkrankungenHolder(v);
         return vh;
     }
@@ -60,7 +60,7 @@ class MedizinischeDatenErkrankungenRecycleAdapter extends RecyclerView.Adapter<M
         @SuppressLint("ResourceType")
         public MedizinischeDatenErkrankungenHolder(View v) {
             super(v);
-            name = v.findViewById(R.id.NotfallKontaktAnzeigename);
+            name = v.findViewById(R.id.MedizinAnzeigename);
             removeBtn = v.findViewById(R.id.buttonRemove);
             //removeBtn.setId(1234);
             removeBtn.setOnClickListener(v1 -> {
