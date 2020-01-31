@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/showNotfallKontaktListe"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorOrange"
-    android:id="@+id/showNotfallKontaktListe">
+    app:cardCornerRadius="0dp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -12,12 +12,12 @@
         android:background="@color/colorWhite">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:id="@+id/NotfallKontaktAnzeigename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:textColor="@color/colorBlack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +32,8 @@
             android:layout_height="50dp"
             android:layout_gravity="right"
             android:layout_marginRight="8dp"
-            android:text="x"
             android:backgroundTint="@color/colorRed"
+            android:text="x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/NotfallKontaktAnzeigename" />
     </androidx.appcompat.widget.LinearLayoutCompat>
