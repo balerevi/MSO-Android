@@ -24,10 +24,24 @@ public enum BlutgruppenEnum implements Serializable {
         BlutgruppenEnum[] values = BlutgruppenEnum.values();
         String[] asString = new String[values.length];
 
-        for(int i = 0; i < values.length; i++)
+        for (int i = 0; i < values.length; i++)
             asString[i] = values[i].text;
 
         return asString;
     }
 
+    public static int findPositionByElement(BlutgruppenEnum blutgruppe) {
+        if (blutgruppe != null) {
+            for (int i = 0; i < BlutgruppenEnum.values().length; i++) {
+                if (blutgruppe.equals(BlutgruppenEnum.values()[i])) {
+                    return i;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public static BlutgruppenEnum setValueByPosition(int position) {
+        return BlutgruppenEnum.values()[position];
+    }
 }
