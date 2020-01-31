@@ -28,7 +28,7 @@ class MedizinischeDatenMedikamenteRecycleAdapter extends RecyclerView.Adapter<Me
     public MedizinischeDatenMedikamenteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.show_notfallkontakte, parent, false);
+                .inflate(R.layout.show_medizin, parent, false);
         MedizinischeDatenMedikamenteHolder vh = new MedizinischeDatenMedikamenteHolder(v);
         return vh;
     }
@@ -70,7 +70,7 @@ class MedizinischeDatenMedikamenteRecycleAdapter extends RecyclerView.Adapter<Me
         @SuppressLint("ResourceType")
         public MedizinischeDatenMedikamenteHolder(View v) {
             super(v);
-            name = v.findViewById(R.id.NotfallKontaktAnzeigename);
+            name = v.findViewById(R.id.MedizinAnzeigename);
             removeBtn = v.findViewById(R.id.buttonRemove);
             //removeBtn.setId(1234);
             removeBtn.setOnClickListener(v1 -> {
