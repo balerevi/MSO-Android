@@ -31,7 +31,6 @@ import de.hsma.stayingalive.dto.factory.ErkrankungUndBefundeDTOFactory;
 import de.hsma.stayingalive.dto.factory.MedikamentDTOFactory;
 import de.hsma.stayingalive.dto.factory.NotfallkontaktDTOFactory;
 import de.hsma.stayingalive.dto.factory.NutzerDTOFactory;
-import de.hsma.stayingalive.manager.NetworkDataGetManager;
 import de.hsma.stayingalive.manager.NetworkDataPostOrPutManager;
 import de.hsma.stayingalive.manager.NutzerDTOManager;
 import de.hsma.stayingalive.manager.StoredDataManager;
@@ -52,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Medizinische Daten"); // set the top title
         actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorBlue)));
-        ((Button) findViewById(R.id.buttonMedizin))
-                .setActivated(true);
+        ((Button) findViewById(R.id.buttonMedizin)).setActivated(true);
 
 
         // Daten aus dem Speicher holen
@@ -65,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         }
         NutzerDTOManager instance = NutzerDTOManager.getInstance();
         instance.setNutzerDto(nutzerDTO);
-
-        new NetworkDataGetManager().execute(nutzerDTO);
 
     }
 
