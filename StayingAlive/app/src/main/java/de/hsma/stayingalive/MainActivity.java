@@ -28,6 +28,8 @@ import de.hsma.stayingalive.dto.factory.ErkrankungUndBefundeDTOFactory;
 import de.hsma.stayingalive.dto.factory.MedikamentDTOFactory;
 import de.hsma.stayingalive.dto.factory.NotfallkontaktDTOFactory;
 import de.hsma.stayingalive.dto.factory.NutzerDTOFactory;
+import de.hsma.stayingalive.manager.NetworkDataPostOrPutManager;
+import de.hsma.stayingalive.manager.NetworkDataGetManager;
 import de.hsma.stayingalive.manager.NutzerDTOManager;
 import de.hsma.stayingalive.manager.StoredDataManager;
 
@@ -53,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
         // Daten aus dem Speicher holen
         nutzerDTO = StoredDataManager.readStorageData(getSharedPreferences(getString(R.string.shared_preferences_user_data), Context.MODE_PRIVATE), getString(R.string.shared_preferences_user_data_json));
 
-        // TODO Update mit Daten vom Server
 
         if (nutzerDTO == null) {
             nutzerDTO = NutzerDTOFactory.createInstance();
         }
         NutzerDTOManager instance = NutzerDTOManager.getInstance();
         instance.setNutzerDto(nutzerDTO);
+
+        new NetworkDataGetManager().execute(nutzerDTO);
 
     }
 
@@ -79,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
         handynummer.setText("");
         kontaktart.setSelected(false);
         writeNutzerToSharedPreferences();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        new NetworkDataPostOrPutManager().execute(nutzerDTO);
     }
 
     private void writeNutzerToSharedPreferences() {

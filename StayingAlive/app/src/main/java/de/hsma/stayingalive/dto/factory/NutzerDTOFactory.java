@@ -12,7 +12,6 @@ public class NutzerDTOFactory {
 
     public static NutzerDTO createInstance(){
         NutzerDTO result = new NutzerDTO();
-        result.setId(UUID.randomUUID().toString());
 
         result.setMedizinischeInformationen(MedizinischeInformationenDTOFactory.createInstance());
         result.setPersoenlicheDaten(PersoenlicheDatenDTOFactory.createInstance());
