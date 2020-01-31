@@ -69,7 +69,7 @@ public class MedzinischeDatenFragment extends Fragment {
     }
 
     private void fillSpinnerBlutgruppe(View root) {
-        // fill Spinner "Kontaktart"
+        // fill Spinner "Blutgruppe"
         BlutgruppenEnum[] values = BlutgruppenEnum.values();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, BlutgruppenEnum.valuesAsString());
         Spinner blutgruppeSpinner = root.findViewById(R.id.spinnerBlutgruppe);
@@ -79,14 +79,14 @@ public class MedzinischeDatenFragment extends Fragment {
     private void handleFields(View root) {
         // Blutgruppe
         final Spinner blutgruppe = root.findViewById(R.id.spinnerBlutgruppe);
-        blutgruppe.setSelection(0);//TODO!!!!
+        blutgruppe.setSelection(BlutgruppenEnum.findPositionByElement(nutzerDto.getMedizinischeInformationen().getBlutgruppe()));
+
 
         blutgruppe.setOnItemSelectedListener(new OnItemSelectedListener () {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                // nutzerDto.getMedizinischeInformationen().setBlutgruppe();// TODO Setzen!!
+                nutzerDto.getMedizinischeInformationen().setBlutgruppe(BlutgruppenEnum.setValueByPosition(position));
                 writeNutzerToSharedPreferences();
             }
 
@@ -110,6 +110,8 @@ public class MedzinischeDatenFragment extends Fragment {
     public void onResume() {
         super.onResume();
         adapterMedikamente.notifyDataSetChanged();
+        adapterErkrankungen.notifyDataSetChanged();
+        adapterAllergien.notifyDataSetChanged();
     }
     private void writeNutzerToSharedPreferences() {
         StoredDataManager.writeStorageData(getActivity().getSharedPreferences(getString(R.string.shared_preferences_user_data), Context.MODE_PRIVATE), getString(R.string.shared_preferences_user_data_json), nutzerDto);

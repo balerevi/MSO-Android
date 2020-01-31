@@ -36,7 +36,7 @@ class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRe
     public void onBindViewHolder(@NonNull NotfallkontaktHolder holder, int position) {
         NotfallkontaktDTO currentKontakt = nutzerDTO.getPrivateDaten().getNotfallkontakte().get(position);
         if (currentKontakt != null) {
-//            String art = currentKontakt.getKontaktart().getValue();
+            String art = currentKontakt.getKontaktart().getValue();
             String name = currentKontakt.getName();
             String nr = currentKontakt.getKontaktdaten().getHandynummer();
 
@@ -44,15 +44,16 @@ class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRe
             if (name != null) {
                 sb.append(name);
             }
-//            if (art!=null){
-//                sb.append(", ");
-//                sb.append(art);
-//            }
+            if (art!=null){
+                sb.append(", ");
+                sb.append(art);
+            }
             if (nr != null) {
                 sb.append(", ");
                 sb.append(nr);
             }
             holder.name.setText(sb.toString());
+            holder.removeBtn.setId(position);
         }
     }
 
@@ -61,10 +62,6 @@ class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRe
         return nutzerDTO.getPrivateDaten().getNotfallkontakte().size();
     }
 
-    public int getBtnCt() {
-        btnCt++;
-        return btnCt;
-    }
 
 
     public class NotfallkontaktHolder extends RecyclerView.ViewHolder {
@@ -75,9 +72,9 @@ class NotfallkontaktRecycleAdapter extends RecyclerView.Adapter<NotfallkontaktRe
             super(v);
             name = v.findViewById(R.id.NotfallKontaktAnzeigename);
             removeBtn = v.findViewById(R.id.buttonRemove);
-            removeBtn.setId(getBtnCt());
             removeBtn.setOnClickListener(v1 -> {
-
+                nutzerDTO.getPrivateDaten().getNotfallkontakte().remove(v1.getId());
+                notifyDataSetChanged();
             });
         }
     }

@@ -1,5 +1,6 @@
 package de.hsma.stayingalive.ui.notfallkontakt;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import de.hsma.stayingalive.R;
 import de.hsma.stayingalive.dto.KontaktartEnum;
 import de.hsma.stayingalive.dto.NutzerDTO;
 import de.hsma.stayingalive.manager.NutzerDTOManager;
+import de.hsma.stayingalive.manager.StoredDataManager;
 
 public class NotfallkontakteFragment extends Fragment {
 
@@ -44,7 +46,14 @@ public class NotfallkontakteFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        writeNutzerToSharedPreferences();
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        writeNutzerToSharedPreferences();
     }
 
     private void fillSpinnerKontaktArt(View root) {
@@ -53,6 +62,10 @@ public class NotfallkontakteFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, KontaktartEnum.valuesAsString());
         Spinner kontaktartSpinner = root.findViewById(R.id.spinnerKontaktArt);
         kontaktartSpinner.setAdapter(adapter);
+    }
+
+    private void writeNutzerToSharedPreferences() {
+        StoredDataManager.writeStorageData(getActivity().getSharedPreferences(getString(R.string.shared_preferences_user_data), Context.MODE_PRIVATE), getString(R.string.shared_preferences_user_data_json), nutzerDto);
     }
 }
 
