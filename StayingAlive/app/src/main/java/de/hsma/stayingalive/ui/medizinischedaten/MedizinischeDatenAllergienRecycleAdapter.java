@@ -51,7 +51,7 @@ class MedizinischeDatenAllergienRecycleAdapter extends RecyclerView.Adapter<Medi
 
     @Override
     public int getItemCount() {
-        return nutzerDTO.getMedizinischeInformationen().getMedikamente().size();
+        return nutzerDTO.getMedizinischeInformationen().getAllergien().size();
     }
 
     public class MedizinischeDatenAllergienHolder extends RecyclerView.ViewHolder {

@@ -51,7 +51,7 @@ class MedizinischeDatenErkrankungenRecycleAdapter extends RecyclerView.Adapter<M
 
     @Override
     public int getItemCount() {
-        return nutzerDTO.getMedizinischeInformationen().getMedikamente().size();
+        return nutzerDTO.getMedizinischeInformationen().getErkankungUndBefunde().size();
     }
 
     public class MedizinischeDatenErkrankungenHolder extends RecyclerView.ViewHolder {
