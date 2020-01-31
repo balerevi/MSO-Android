@@ -20,6 +20,7 @@
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/colorBlack"
             android:text="Blutgruppe"
+            android:layout_marginTop="8dp"
             android:textColor="@color/colorBlack"
             android:textColorHint="@color/colorBlack"
             app:layout_constraintStart_toStartOf="parent"

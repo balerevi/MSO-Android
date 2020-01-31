@@ -3,6 +3,7 @@ package de.hsma.stayingalive;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Medizinische Daten"); // set the top title
+        actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorBlue)));
         ((Button) findViewById(R.id.buttonMedizin))
                 .setActivated(true);
 
@@ -210,17 +215,27 @@ public class MainActivity extends AppCompatActivity {
         btn.setActivated(true);
         d = btn.getCompoundDrawables();
 
+        ActionBar actionBar = getSupportActionBar();
         switch (id) {
             case R.id.buttonPersoenlich:
+                actionBar.setTitle("Persönliche Daten"); // set the top title
+                actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorOrange)));
+
                 transaction.replace(R.id.nav_host_fragment, new PersoenlicheDatenFragment());
                 d[0].setColorFilter(getColor(R.color.colorOrange), PorterDuff.Mode.SRC_ATOP);
                 break;
             case R.id.buttonMedizin:
+                actionBar.setTitle("Medizinische Daten"); // set the top title
+                actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorBlue)));
+
                 transaction.replace(R.id.nav_host_fragment, new MedzinischeDatenFragment());
                 d[0].setColorFilter(getColor(R.color.colorBlue), PorterDuff.Mode.SRC_ATOP);
 //                d[0].setTint(Color.GREEN);
                 break;
             case R.id.buttonNotfallKontakt:
+                actionBar.setTitle("Notfallkontakte"); // set the top title
+                actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorRed)));
+
                 transaction.replace(R.id.nav_host_fragment, new NotfallkontakteFragment());
                 d[0].setColorFilter(getColor(R.color.colorRed), PorterDuff.Mode.SRC_ATOP);
 //                d[0].setTint(Color.GREEN);
