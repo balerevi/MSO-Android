@@ -46,4 +46,17 @@ public class StoredDataManager {
 
 
     }
+
+    static String convertNutzerDTOToJSONString(NutzerDTO nutzerDTO) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+            try {
+                return objectMapper.writeValueAsString(nutzerDTO);
+            } catch (JsonProcessingException ex) {
+                ex.printStackTrace();
+            }
+            return null;
+    }
 }
