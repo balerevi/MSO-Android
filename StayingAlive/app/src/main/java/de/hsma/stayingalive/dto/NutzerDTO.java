@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class NutzerDTO implements Serializable {
 
 
-    private String id;
+    private int id;
     /**
      * enthält die Persönlichen Personenbezogenen Daten
      */
@@ -49,11 +49,11 @@ public class NutzerDTO implements Serializable {
         this.medizinischeInformationen = medizinischeInformationen;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
