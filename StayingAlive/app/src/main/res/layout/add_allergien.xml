@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="z. B. Heuschnupfen oder Penecelin"
+            android:hint="z. B. Heuschnupfen"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
