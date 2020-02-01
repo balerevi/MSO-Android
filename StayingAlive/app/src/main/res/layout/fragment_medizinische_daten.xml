@@ -22,7 +22,7 @@
             android:text="Blutgruppe"
             android:layout_marginTop="8dp"
             android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorGrey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +46,7 @@
             android:backgroundTint="@color/colorBlack"
             android:text="Medikamente"
             android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorGrey"
             app:layout_constraintStart_toStartOf="@+id/spinnerBlutgruppe"
             app:layout_constraintTop_toBottomOf="@+id/spinnerBlutgruppe" />
 
@@ -59,7 +59,7 @@
             android:backgroundTint="@color/colorBlack"
             android:scrollbars="vertical"
             android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorGrey"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -82,7 +82,7 @@
             android:backgroundTint="@color/colorBlack"
             android:text="Allergien"
             android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorGrey"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/button_medikamente_hinzufuegen" />
 
@@ -115,7 +115,7 @@
             android:backgroundTint="@color/colorBlack"
             android:text="Erkrankungen und Befunde"
             android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorGrey"
             app:layout_constraintStart_toStartOf="@+id/button_allergien_hinzufuegen"
             app:layout_constraintTop_toBottomOf="@+id/button_allergien_hinzufuegen" />
 
@@ -148,7 +148,7 @@
             android:backgroundTint="@color/colorBlack"
             android:text="Organspender"
             android:textColor="@color/colorBlack"
-            android:textColorHint="@color/colorBlack"
+            android:textColorHint="@color/colorGrey"
             app:layout_constraintStart_toStartOf="@+id/button_erkankungen_hinzufuegen"
             app:layout_constraintTop_toBottomOf="@+id/button_erkankungen_hinzufuegen" />
 
