@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Medizinische Daten"); // set the top title
         actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorBlue)));
-        ((Button) findViewById(R.id.buttonMedizin)).setActivated(true);
+        findViewById(R.id.buttonMedizin).setActivated(true);
 
 
         // Daten aus dem Speicher holen
@@ -90,9 +90,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             Integer nutzerDtoId = new NetworkDataPostOrPutManager().execute(nutzerDTO).get();
             if (nutzerDtoId != null) {
-                if (nutzerDTO.getId() == null) {
-                    nutzerDTO.setId(nutzerDtoId);
-                }
+                // in jedem Fall schreiben wir die NutzerDtoID weg und speichern diese, evt. haben wir vom Backend eine neue bekommen
+                nutzerDTO.setId(nutzerDtoId);
                 writeNutzerToSharedPreferences();
             }
 

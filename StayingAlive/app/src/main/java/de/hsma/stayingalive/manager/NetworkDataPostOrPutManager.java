@@ -21,28 +21,29 @@ public class NetworkDataPostOrPutManager extends AsyncTask<NutzerDTO, Void, Inte
 
     @Override
     protected Integer doInBackground(NutzerDTO... nutzerDTO) {
+        String url = "https://mso-backend.herokuapp.com/storage/";
         NutzerDTO nutzerDTO1 = nutzerDTO[0];
-        if (nutzerDTO1.getId() == null) {
-            Integer nutzerId = postNutzerDto(nutzerDTO1);
+
+        // haben wir bereits eine NutzerID, versuchen wir zu putten
+        if (nutzerDTO1.getId() != null) {
+            Integer nutzerId = callRestBackend(nutzerDTO1, url + nutzerDTO1.getId(), "PUT");
             if (nutzerId != null) {
                 return nutzerId;
             }
-        } else {
-            Integer integer = putNutzerDto(nutzerDTO1);
-            if (integer != null) {
-                return integer;
-            }
+        }
+        // haben wir noch keine ID oder schlägt das fehl, Posten wir
+        Integer nutzerId = callRestBackend(nutzerDTO1, url, "POST");
+        if (nutzerId != null) {
+            return nutzerId;
         }
         return null;
     }
 
-
-    private Integer postNutzerDto(NutzerDTO nutzerDTO) {
-
+    private Integer callRestBackend(NutzerDTO nutzerDTO, String url, String method) {
         try {
-            URL url = new URL("https://mso-backend.herokuapp.com/storage/");
-            HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
-            con.setRequestMethod("POST");
+            URL uri = new URL(url);
+            HttpsURLConnection con = (HttpsURLConnection) uri.openConnection();
+            con.setRequestMethod(method);
             con.setDoOutput(true);
             con.setRequestProperty("Content-Type", "application/json");
 
@@ -87,57 +88,4 @@ public class NetworkDataPostOrPutManager extends AsyncTask<NutzerDTO, Void, Inte
         }
         return null;
     }
-
-    private Integer putNutzerDto(NutzerDTO nutzerDTO) {
-        try {
-            URL url = new URL("https://mso-backend.herokuapp.com/storage/" + nutzerDTO.getId());
-            HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
-            con.setRequestMethod("PUT");
-            con.setDoOutput(true);
-            con.setRequestProperty("Content-Type", "application/json");
-
-            DataOutputStream out = new DataOutputStream(con.getOutputStream());
-            String s = StoredDataManager.convertNutzerDTOToJSONString(nutzerDTO);
-            out.write(s.getBytes());
-            out.flush();
-            out.close();
-
-
-            System.out.println("ResponseCode: " + con.getResponseCode());
-
-            if (con.getResponseCode() < 400) {
-
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(con.getInputStream()));
-                String inputLine;
-                StringBuffer content = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    content.append(inputLine);
-                }
-
-                in.close();
-
-                String nutzerDtoAsJsonString = content.toString();
-                System.out.println(nutzerDtoAsJsonString);
-                System.out.println(con.getResponseMessage());
-                con.disconnect();
-
-                ObjectMapper objectMapper = new ObjectMapper();
-
-                NutzerDTO result = objectMapper.readValue(nutzerDtoAsJsonString, NutzerDTO.class);
-                return result.getId();
-
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-
-    }
-
-
 }
