@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import de.hsma.stayingalive.R;
 import de.hsma.stayingalive.dto.NutzerDTO;
@@ -81,8 +82,10 @@ public class PersoenlicheDatenFragment extends Fragment {
 
         // Geburtsdatum
         final TextView geburtsdatum = root.findViewById(R.id.editTextGeburstag);
-        // TODO parsen!!!
-//        geburtsdatum.setText(nutzerDto.getPersoenlicheDaten().getGeburtsdatum().toString());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        if (nutzerDto.getPersoenlicheDaten().getGeburtsdatum() != null) {
+            geburtsdatum.setText(nutzerDto.getPersoenlicheDaten().getGeburtsdatum().format(formatter));
+        }
         geburtsdatum.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -91,13 +94,18 @@ public class PersoenlicheDatenFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                nutzerDto.getPersoenlicheDaten().setGeburtsdatum(LocalDate.now());//geburtsdatum.getText().toString());
-                writeNutzerToSharedPreferences();
+
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                String geburtsdatumString = geburtsdatum.getText().toString();
+                if (geburtsdatumString.length() == 10) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                    LocalDate parsstedGeb = LocalDate.parse(geburtsdatumString, formatter);
+                    nutzerDto.getPersoenlicheDaten().setGeburtsdatum(parsstedGeb);
+                    writeNutzerToSharedPreferences();
+                }
             }
         });
 
