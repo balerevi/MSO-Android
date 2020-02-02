@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import de.hsma.stayingalive.R;
+import de.hsma.stayingalive.dto.BlutgruppenEnum;
 import de.hsma.stayingalive.dto.KontaktartEnum;
 import de.hsma.stayingalive.dto.NutzerDTO;
 import de.hsma.stayingalive.manager.NutzerDTOManager;
@@ -62,6 +65,21 @@ public class NotfallkontakteFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, KontaktartEnum.valuesAsString());
         Spinner kontaktartSpinner = root.findViewById(R.id.spinnerKontaktArt);
         kontaktartSpinner.setAdapter(adapter);
+
+        kontaktartSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView)parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorBlack));
+                writeNutzerToSharedPreferences();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Nichts zu tun
+            }
+        });
+
     }
 
     private void writeNutzerToSharedPreferences() {
