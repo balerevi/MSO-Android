@@ -68,6 +68,7 @@ class MedizinischeDatenMedikamenteRecycleAdapter extends RecyclerView.Adapter<Me
         public MedizinischeDatenMedikamenteHolder(View v) {
             super(v);
             name = v.findViewById(R.id.MedizinAnzeigename);
+            name.setTextColor(R.color.colorBlue);
             removeBtn = v.findViewById(R.id.buttonRemove);
             removeBtn.setOnClickListener(v1 -> {
                 nutzerDTO.getMedizinischeInformationen().getMedikamente().remove(v1.getId());
