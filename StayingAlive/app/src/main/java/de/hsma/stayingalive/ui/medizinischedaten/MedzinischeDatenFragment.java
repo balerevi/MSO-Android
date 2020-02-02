@@ -89,7 +89,7 @@ public class MedzinischeDatenFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 nutzerDto.getMedizinischeInformationen().setBlutgruppe(BlutgruppenEnum.setValueByPosition(position));
-                ((TextView)parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorBlack));
+                ((TextView)parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.colorBlue));
                 writeNutzerToSharedPreferences();
             }
 
