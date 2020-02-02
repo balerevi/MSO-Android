@@ -62,6 +62,7 @@ class MedizinischeDatenAllergienRecycleAdapter extends RecyclerView.Adapter<Medi
         public MedizinischeDatenAllergienHolder(View v) {
             super(v);
             name = v.findViewById(R.id.MedizinAnzeigename);
+            name.setTextColor(R.color.colorBlue);
             removeBtn = v.findViewById(R.id.buttonRemove);
             removeBtn.setOnClickListener(v1 -> {
                 nutzerDTO.getMedizinischeInformationen().getAllergien().remove(v1.getId());
