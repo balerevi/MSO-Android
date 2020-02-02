@@ -2,6 +2,7 @@ package de.hsma.stayingalive;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -17,6 +18,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.concurrent.ExecutionException;
 
@@ -63,6 +66,33 @@ public class MainActivity extends AppCompatActivity {
         }
         NutzerDTOManager instance = NutzerDTOManager.getInstance();
         instance.setNutzerDto(nutzerDTO);
+
+
+        String userlink = "https://mso-backend.herokuapp.com/said/";
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+
+            try {
+                Integer nutzerDtoId = new NetworkDataPostOrPutManager().execute(nutzerDTO).get();
+                if (nutzerDtoId != null) {
+                    // in jedem Fall schreiben wir die NutzerDtoID weg und speichern diese, evt. haben wir vom Backend eine neue bekommen
+                    nutzerDTO.setId(nutzerDtoId);
+                    writeNutzerToSharedPreferences();
+                }
+
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            String shareBody = "Hier der Token zu meinem StayingAlive-Daten: " + userlink + nutzerDTO.getId();
+            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "StayingAlive - Informationen retten Leben");
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        });
+
 
     }
 
