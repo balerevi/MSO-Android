@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Medizinische Daten"); // set the top title
+        actionBar.setTitle("Medizinische Informationen"); // set the top title
         actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorBlue)));
         findViewById(R.id.buttonMedizin).setActivated(true);
 
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         name.setText("");
         handynummer.setText("");
-        kontaktart.setSelected(false);
+        kontaktart.setSelection(0);
         writeNutzerToSharedPreferences();
     }
 
@@ -234,14 +234,14 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         switch (id) {
             case R.id.buttonPersoenlich:
-                actionBar.setTitle("Persönliche Daten"); // set the top title
+                actionBar.setTitle("Persönliche Informationen"); // set the top title
                 actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorOrange)));
 
                 transaction.replace(R.id.nav_host_fragment, new PersoenlicheDatenFragment());
                 d[0].setColorFilter(getColor(R.color.colorOrange), PorterDuff.Mode.SRC_ATOP);
                 break;
             case R.id.buttonMedizin:
-                actionBar.setTitle("Medizinische Daten"); // set the top title
+                actionBar.setTitle("Medizinische Informationen"); // set the top title
                 actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorBlue)));
 
                 transaction.replace(R.id.nav_host_fragment, new MedzinischeDatenFragment());
@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
 //                d[0].setTint(Color.GREEN);
                 break;
             case R.id.buttonNotfallKontakt:
-                actionBar.setTitle("Notfallkontakte"); // set the top title
+                actionBar.setTitle("Private Informationen"); // set the top title
                 actionBar.setBackgroundDrawable(new ColorDrawable(getColor(R.color.colorRed)));
 
                 transaction.replace(R.id.nav_host_fragment, new NotfallkontakteFragment());
