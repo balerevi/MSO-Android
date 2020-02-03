@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
         String userlink = "https://mso-backend.herokuapp.com/said/";
         FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setActivated(false);
+        fab.setBackgroundTintList(getResources().getColorStateList(R.color.med_btn, getTheme()));
         fab.setOnClickListener(view -> {
 
             try {
@@ -235,6 +237,8 @@ public class MainActivity extends AppCompatActivity {
     public void navigate(View view) {
         int id = view.getId();
 
+        FloatingActionButton fab = findViewById(R.id.fab);
+
         Button pers = (Button) findViewById(R.id.buttonPersoenlich);
         Button med = (Button) findViewById(R.id.buttonMedizin);
         Button notfall = (Button) findViewById(R.id.buttonNotfallKontakt);
@@ -269,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
 
                 transaction.replace(R.id.nav_host_fragment, new PersoenlicheDatenFragment());
                 d[0].setColorFilter(getColor(R.color.colorOrange), PorterDuff.Mode.SRC_ATOP);
+                fab.setBackgroundTintList(getResources().getColorStateList(R.color.pers_btn, getTheme()));
                 break;
             case R.id.buttonMedizin:
                 actionBar.setTitle("Medizinische Informationen"); // set the top title
@@ -276,6 +281,7 @@ public class MainActivity extends AppCompatActivity {
 
                 transaction.replace(R.id.nav_host_fragment, new MedzinischeDatenFragment());
                 d[0].setColorFilter(getColor(R.color.colorBlue), PorterDuff.Mode.SRC_ATOP);
+                fab.setBackgroundTintList(getResources().getColorStateList(R.color.med_btn, getTheme()));
 //                d[0].setTint(Color.GREEN);
                 break;
             case R.id.buttonNotfallKontakt:
@@ -284,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
 
                 transaction.replace(R.id.nav_host_fragment, new NotfallkontakteFragment());
                 d[0].setColorFilter(getColor(R.color.colorRed), PorterDuff.Mode.SRC_ATOP);
+                fab.setBackgroundTintList(getResources().getColorStateList(R.color.not_btn, getTheme()));
 //                d[0].setTint(Color.GREEN);
                 break;
         }
