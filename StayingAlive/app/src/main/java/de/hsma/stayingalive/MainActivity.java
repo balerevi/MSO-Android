@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             }
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
-            String shareBody = "Hier der Token zu meinem StayingAlive-Daten: " + userlink + nutzerDTO.getId();
+            String shareBody = "Hier der Token zu meinen StayingAlive-Daten: " + userlink + nutzerDTO.getId();
             sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "StayingAlive - Informationen retten Leben");
             sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
             startActivity(Intent.createChooser(sharingIntent, "Share via"));
